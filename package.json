@@ -1,0 +1,28 @@
+{
+  "name": "gitter-realtime-client",
+  "version": "0.1.0",
+  "description": "Gitter Realtime Client",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha test/*"
+  },
+  "keywords": [
+    "gitter",
+    "realtime",
+    "client",
+    "faye"
+  ],
+  "author": "Andrew Newdigate",
+  "license": "MIT",
+  "dependencies": {
+    "backbone": "^1.1.2",
+    "loglevel": "^1.2.0",
+    "underscore": "^1.7.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.1.0"
+  },
+  "publishConfig": {
+    "registry": "http://beta-internal:8089/nexus/content/repositories/gitter-private/"
+  }
+}
