@@ -1,12 +1,4 @@
 --ignore-dir
-public/repo/
---ignore-dir
 node_modules/
---ignore-dir
-public/styles/
---ignore-dir
-output/
---ignore-dir
-test/end-to-end/yslow/
 --type-set=hbs=.hbs
 
