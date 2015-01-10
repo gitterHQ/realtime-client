@@ -39,7 +39,6 @@ Create a live Backbone collection, passing the client in via the options hash.
 
 ```javascript
 var rooms = new realtimeClient.RoomCollection([], { client: client, listen: true });
-});
 ```
 
 #### Step 3: Use the Collection
