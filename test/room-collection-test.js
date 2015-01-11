@@ -8,6 +8,7 @@ var rooms = new realtimeClient.RoomCollection([], { client: client, listen: true
 
 var favs = realtimeClient.filteredRooms.favourites(rooms);
 
+/* Display all the favs, all the time */
 favs.on('add remove reset change', function() {
   console.log(favs.toJSON());
 });
