@@ -326,6 +326,6 @@ describe('room-sort', function() {
 
 function id(collection) {
   return collection.map(function(model) {
-    return model.get('id');
+    return model.id;
   });
 }
