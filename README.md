@@ -1,4 +1,4 @@
-# Gitter Realtime Client
+# Gitter Realtime Client [![Build Status](https://travis-ci.org/gitterHQ/realtime-client.svg)](https://travis-ci.org/gitterHQ/realtime-client)
 
 Live Backbone Collections of Gitter Data!
 
