@@ -2,6 +2,8 @@
 
 Live Backbone Collections of Gitter Data!
 
+`npm install gitter-realtime-client`
+
 ## Description
 
 Gitter uses [Faye](http://faye.jcoglan.com) for it's realtime communications. It uses Faye as a fairly low-level messaging interface, and it can be quite difficult to implement an application correctly on top of it, especially when dealing idiosyncrasies in the protocol, like:
