@@ -24,8 +24,5 @@
   },
   "devDependencies": {
     "mocha": "^2.1.0"
-  },
-  "publishConfig": {
-    "registry": "http://beta-internal:8089/nexus/content/repositories/gitter-private/"
   }
 }
