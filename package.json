@@ -17,7 +17,7 @@
   "dependencies": {
     "backbone": "^1.1.2",
     "backbone-sorted-collection": "git://github.com/gitterhq/backbone-sorted-collection.git#79ce522",
-    "gitter-faye": "1.1.0-f",
+    "gitter-faye": "1.1.0-g",
     "loglevel": "^1.2.0",
     "moment": "^2.9.0",
     "underscore": "^1.7.0"
