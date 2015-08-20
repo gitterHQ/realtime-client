@@ -9,7 +9,7 @@ Live Backbone Collections of Gitter Data!
 Gitter uses [Faye](http://faye.jcoglan.com) for it's realtime communications. It uses Faye as a fairly low-level messaging interface, and it can be quite difficult to implement an application correctly on top of it, especially when dealing idiosyncrasies in the protocol, like:
 
 * Out of order messages
-* Data-loss 
+* Data-loss
 * Reinitialisation of state after client disconnections
 
 **Gitter Realtime Client** provides a higher-level interface for building applications on top of the Gitter realtime API.
