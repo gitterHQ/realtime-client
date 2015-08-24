@@ -97,19 +97,19 @@ describe('room-sort', function() {
             id: 'room',
             unreadItems: 5,
             mentions: 3,
-            hasHadUnreadItemsAtSomePoint: true,
-            hasHadMentionsAtSomePoint: true,
+            hadUnreadItemsOnLoad: true,
+            hadMentionsOnLoad: true,
             lastAccessTime: OLD,
-            lastAccessTimeNoSync: OLD
+            lastAccessTimeOnLoad: OLD
           });
           var roomToUpdate = new Backbone.Model({
             id: 'room_to_update',
             unreadItems: 3,
             mentions: 1,
-            hasHadUnreadItemsAtSomePoint: true,
-            hasHadMentionsAtSomePoint: true,
+            hadUnreadItemsOnLoad: true,
+            hadMentionsOnLoad: true,
             lastAccessTime: VERY_OLD,
-            lastAccessTimeNoSync: VERY_OLD
+            lastAccessTimeOnLoad: VERY_OLD
           });
           var collection = new RecentsCollection([room, roomToUpdate]);
 
@@ -128,28 +128,28 @@ describe('room-sort', function() {
             id: 'room',
             unreadItems: 1,
             mentions: 1,
-            hasHadUnreadItemsAtSomePoint: true,
-            hasHadMentionsAtSomePoint: true,
+            hadUnreadItemsOnLoad: true,
+            hadMentionsOnLoad: true,
             lastAccessTime: OLD,
-            lastAccessTimeNoSync: OLD
+            lastAccessTimeOnLoad: OLD
           });
           var roomToUpdate = new Backbone.Model({
             id: 'room_to_update',
             unreadItems: 1,
             mentions: 1,
-            hasHadUnreadItemsAtSomePoint: true,
-            hasHadMentionsAtSomePoint: true,
+            hadUnreadItemsOnLoad: true,
+            hadMentionsOnLoad: true,
             lastAccessTime: VERY_OLD,
-            lastAccessTimeNoSync: VERY_OLD
+            lastAccessTimeOnLoad: VERY_OLD
           });
           var veryVeryOldRoom = new Backbone.Model({
             id: 'very_very_old_room',
             unreadItems: 1,
             mentions: 1,
-            hasHadUnreadItemsAtSomePoint: true,
-            hasHadMentionsAtSomePoint: true,
+            hadUnreadItemsOnLoad: true,
+            hadMentionsOnLoad: true,
             lastAccessTime: VERY_VERY_OLD,
-            lastAccessTimeNoSync: VERY_VERY_OLD
+            lastAccessTimeOnLoad: VERY_VERY_OLD
           });
           var collection = new RecentsCollection([room, roomToUpdate, veryVeryOldRoom]);
 
@@ -178,6 +178,18 @@ describe('room-sort', function() {
           assert.deepEqual(id(collection), ['unread', 'regular']);
         });
 
+        it('puts new unreads above rooms that had unreads (issue troupe/gitter-webapp#368)', function() {
+          var collection = new RecentsCollection([
+            { id: 'regular' },
+            { id: 'was_unread', hadUnreadItemsOnLoad: true, lastAccessTime: OLD },
+            { id: 'unread', unreadItems: 1, escalationTime: NEW }
+          ]);
+
+          collection.sort();
+
+          assert.deepEqual(id(collection), ['unread', 'was_unread', 'regular']);
+        });
+
         it('sorts multiple unread rooms by time of last access', function() {
           var collection = new RecentsCollection([
             { id: 'old_unread', unreadItems: 5, lastAccessTime: OLD },
@@ -204,16 +216,16 @@ describe('room-sort', function() {
           var room = new Backbone.Model({
             id: 'room',
             unreadItems: 5,
-            hasHadUnreadItemsAtSomePoint: true,
+            hadUnreadItemsOnLoad: true,
             lastAccessTime: OLD,
-            lastAccessTimeNoSync: OLD
+            lastAccessTimeOnLoad: OLD
           });
           var roomToUpdate = new Backbone.Model({
             id: 'room_to_update',
             unreadItems: 3,
-            hasHadUnreadItemsAtSomePoint: true,
+            hadUnreadItemsOnLoad: true,
             lastAccessTime: VERY_OLD,
-            lastAccessTimeNoSync: VERY_OLD
+            lastAccessTimeOnLoad: VERY_OLD
           });
           var collection = new RecentsCollection([room, roomToUpdate]);
 
@@ -231,23 +243,23 @@ describe('room-sort', function() {
           var room = new Backbone.Model({
             id: 'room',
             unreadItems: 1,
-            hasHadUnreadItemsAtSomePoint: true,
+            hadUnreadItemsOnLoad: true,
             lastAccessTime: OLD,
-            lastAccessTimeNoSync: OLD
+            lastAccessTimeOnLoad: OLD
           });
           var roomToUpdate = new Backbone.Model({
             id: 'room_to_update',
             unreadItems: 1,
-            hasHadUnreadItemsAtSomePoint: true,
+            hadUnreadItemsOnLoad: true,
             lastAccessTime: VERY_OLD,
-            lastAccessTimeNoSync: VERY_OLD
+            lastAccessTimeOnLoad: VERY_OLD
           });
           var veryVeryOldRoom = new Backbone.Model({
             id: 'very_very_old_room',
             unreadItems: 1,
-            hasHadUnreadItemsAtSomePoint: true,
+            hadUnreadItemsOnLoad: true,
             lastAccessTime: VERY_VERY_OLD,
-            lastAccessTimeNoSync: VERY_VERY_OLD
+            lastAccessTimeOnLoad: VERY_VERY_OLD
           });
           var collection = new RecentsCollection([room, roomToUpdate, veryVeryOldRoom]);
 
@@ -289,8 +301,8 @@ describe('room-sort', function() {
         });
 
         it('doesnt move rooms if they are later accessed', function() {
-          var room = new Backbone.Model({ id: 'room', lastAccessTime: OLD, lastAccessTimeNoSync: OLD });
-          var roomToUpdate = new Backbone.Model({ id: 'room_to_update', lastAccessTime: VERY_OLD, lastAccessTimeNoSync: VERY_OLD });
+          var room = new Backbone.Model({ id: 'room', lastAccessTime: OLD, lastAccessTimeOnLoad: OLD });
+          var roomToUpdate = new Backbone.Model({ id: 'room_to_update', lastAccessTime: VERY_OLD, lastAccessTimeOnLoad: VERY_OLD });
           var collection = new RecentsCollection([room, roomToUpdate]);
 
           collection.sort();
