@@ -1,5 +1,5 @@
 {
-  "name": "gitter-realtime-client",
+  "name": "gitter-realtime-client-halley-TEMP",
   "version": "0.3.11",
   "description": "Gitter Realtime Client",
   "main": "lib/index.js",
@@ -29,6 +29,7 @@
     "mocha": "^2.1.0"
   },
   "publishConfig": {
-    "registry": "https://registry.npmjs.org"
+    "DO_NOT_PUBLISH_TO_registry": "https://registry.npmjs.org"
+    "registry": "http://beta-internal:4873/"
   }
 }
