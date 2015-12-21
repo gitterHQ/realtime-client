@@ -1,6 +1,6 @@
 {
   "name": "gitter-realtime-client",
-  "version": "0.3.14",
+  "version": "0.3.15",
   "description": "Gitter Realtime Client",
   "main": "lib/index.js",
   "scripts": {
