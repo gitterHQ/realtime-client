@@ -1,6 +1,6 @@
 {
   "name": "gitter-realtime-client-halley-TEMP",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "description": "Gitter Realtime Client",
   "main": "lib/index.js",
   "scripts": {
