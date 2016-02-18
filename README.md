@@ -60,6 +60,11 @@ rooms.on('add remove reset change', function(model) {
 });
 ```
 
+#### Send a message
+
+This library is only for listening. You can send a message through our [REST API](https://developer.gitter.im/docs/messages-resource#send-a-message) or the [`node-gitter`](https://www.npmjs.com/package/node-gitter) package.
+
+
 ## License
 
 The MIT License (MIT)
