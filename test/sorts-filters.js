@@ -334,6 +334,20 @@ describe('room-sort', function() {
 
   });
 
+  describe('left-menu', function(){
+    it('does not filter out favourites', function() {
+      var collection = new Backbone.Collection([
+        { id: 1, favourite: 1, unreadItems: 1 },
+        { id: 2, unreadItems: 1 }
+      ]);
+
+      var filteredCollection = collection.filter(roomSort.model.leftMenu.filter);
+
+      assert.deepEqual(id(filteredCollection), [1, 2]);
+    });
+
+  });
+
 });
 
 function id(collection) {
