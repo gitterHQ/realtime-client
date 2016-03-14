@@ -334,7 +334,7 @@ describe('room-sort', function() {
 
   });
 
-  describe.only('left-menu', function(){
+  describe('left-menu', function(){
     it('does not filter out favourites', function() {
       var collection = new Backbone.Collection([
         { id: 1, favourite: 1, unreadItems: 1 },
