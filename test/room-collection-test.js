@@ -6,7 +6,7 @@ require('loglevel').setLevel('debug');
 var blocked = require('blocked');
 blocked(function(ms){
   if (ms > 0) {
-    console.log('BLOCKED FOR %sms', ms);
+    // console.log('BLOCKED FOR %sms', ms);
   }
 });
 
@@ -25,10 +25,10 @@ var favs = realtimeClient.filteredRooms.favourites(rooms);
 /* Display all the favs, all the time */
 favs.on('add remove reset change', function() {
   // console.log(favs.toJSON());
-  console.log('change');
+  // console.log('change');
 });
 
-rooms.on('change:unreadItems', function(model) {
+rooms.on('change:unreadItems', function(/*model*/) {
   // console.log(model.get('uri') + ' ' + model.get('unreadItems'))
-  console.log('unread');
+  // console.log('unread');
 });
